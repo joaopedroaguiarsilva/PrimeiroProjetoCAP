@@ -7,19 +7,19 @@ using { cuid, managed} from '@sap/cds/common';
   //key ID : UUID; // aspect de cuid
 //}
 
-entity Customers : cuid, managed {
+entity Customers : cuid {
     name        : String(100); @description : 'Nome do Cliente'
     age         : Integer;      
     orders      : Association to many Orders on orders.customer = $self;
 }
 
-entity Orders : cuid, managed {
-    ammount     : Decimal;    
+entity Orders : cuid {
+    amount     : Decimal;    
     customer    : Association to Customers;
     nf          : Association to one NFs on nf.order = $self; 
 }
 
-entity NFs {
+entity NFs : cuid{
     id_fiscal   : String;      
     order       : Association to  Orders;
 }

@@ -5,38 +5,5 @@
 
 ### Customers
 # @name Customers_GET
-GET {{server}}/main/Customers
-Authorization: Basic {{username}}:{{password}}
-
-
-### Customers
-# @name Customers_POST
-POST {{server}}/main/Customers
-Content-Type: application/json
-Authorization: Basic {{username}}:{{password}}
-
-{
-  "id": 81796,
-  "name": "name-81796",
-  "age": 86
-}
-
-
-### Customers
-# @name Customers_PATCH
-PATCH {{server}}/main/Customers/81796
-Content-Type: application/json
-Authorization: Basic {{username}}:{{password}}
-
-{
-  "id": 81796,
-  "name": "name-81796",
-  "age": 86
-}
-
-
-### Customers
-# @name Customers_DELETE
-DELETE {{server}}/main/Customers/81796
-Content-Type: application/json
+GET {{server}}/main/Customers?$select=name&$expand=orders($expand=nf)
 Authorization: Basic {{username}}:{{password}}
